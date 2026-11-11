@@ -6,7 +6,7 @@
  * Los DATOS de la app (ventas, productos, etc.) NO se guardan acá,
  * sino en IndexedDB, y no se borran al actualizar.
  */
-const VERSION = 'v1.1.0';
+const VERSION = 'v1.2.0';
 const CACHE = `lenceria-app-${VERSION}`;
 
 const ARCHIVOS = [
@@ -33,6 +33,7 @@ const ARCHIVOS = [
   './js/util/cotizacion.js',
   './js/util/whatsapp.js',
   './js/util/comprobante.js',
+  './js/util/tarjetas-catalogo.js',
   './js/modulos/inicio.js',
   './js/modulos/selector.js',
   './js/modulos/inventario.js',
@@ -42,6 +43,7 @@ const ARCHIVOS = [
   './js/modulos/clientes.js',
   './js/modulos/reportes.js',
   './js/modulos/respaldos.js',
+  './js/modulos/compartir-catalogo.js',
   './js/modulos/mas.js',
   './js/modulos/configuracion.js',
   './img/catalogo/bikini-importada.jpg',

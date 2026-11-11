@@ -589,3 +589,29 @@ a { color: var(--coral-texto); }
   :root, :root[data-tema] { --crema: #fff; --superficie: #fff; --texto: #000; --texto-suave: #444; --borde: #ccc; }
   .tarjeta, .kpi { box-shadow: none; break-inside: avoid; }
 }
+
+/* =========================================================
+   Compartir catálogo
+   ========================================================= */
+.lista-seleccion { list-style: none; margin: 0; padding: 0; }
+.grupo-titulo { font-size: .8rem; font-weight: 700; color: var(--texto-suave); text-transform: uppercase; letter-spacing: .04em; padding: 12px 4px 6px; }
+.seleccion {
+  display: flex; align-items: center; gap: 10px; padding: 8px 10px; min-height: 56px;
+  border-bottom: 1px solid var(--borde); cursor: pointer;
+}
+.seleccion input { width: 22px; height: 22px; flex-shrink: 0; accent-color: var(--coral); }
+.seleccion:has(input:not(:checked)) { opacity: .55; }
+.vista-previa { text-align: center; margin: 8px 0 12px; }
+.vista-imagen { width: 100%; height: auto; border-radius: 12px; box-shadow: var(--sombra); border: 1px solid var(--borde); }
+.vista-imagen--historia { max-width: 260px; }
+.vista-imagen--cuadrada { max-width: 340px; }
+.vista-texto {
+  text-align: left; white-space: pre-wrap; font: inherit; font-size: .85rem; line-height: 1.5;
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 12px 14px; margin: 0;
+  max-height: 340px; overflow-y: auto;
+}
+.ayuda-compartir summary { cursor: pointer; font-weight: 600; min-height: 32px; }
+.ayuda-compartir[open] summary { margin-bottom: 8px; }
+.galeria { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.galeria li { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.galeria .vista-imagen { max-width: 100%; }

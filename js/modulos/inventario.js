@@ -134,7 +134,9 @@ async function listaProductos(contenedor) {
     el('div', { clase: 'filtros', role: 'group', 'aria-label': 'Filtrar por stock' },
       [['todos', 'Todo el stock'], ['ultima', 'Última unidad'], ['sin', 'Sin stock']].map(([v, t]) => chip('stock', v, t, filtroStock, (x) => { filtroStock = x; }))),
     zonaLista,
-    el('a', { href: '#/inventario/compra', clase: 'boton boton--secundario boton--ancho' }, 'Ingreso de mercadería')
+    el('div', { clase: 'botonera' },
+      el('a', { href: '#/mas/catalogo', clase: 'boton' }, 'Compartir catálogo'),
+      el('a', { href: '#/inventario/compra', clase: 'boton boton--secundario' }, 'Ingreso de mercadería'))
   );
   dibujar();
 }

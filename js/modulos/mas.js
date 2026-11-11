@@ -8,6 +8,7 @@ import { VERSION_APP } from '../version.js';
 import { estado, pedirInstalacion } from '../app.js';
 
 const MODULOS = [
+  ['#/mas/catalogo', 'Compartir catálogo', 'Imágenes o lista de precios para WhatsApp e Instagram'],
   ['#/mas/clientes', 'Clientes y deudas', 'Fichas, fiado y recordatorios por WhatsApp'],
   ['#/mas/reportes', 'Reportes', 'Ganancia, lo más vendido, inventario y Excel'],
   ['#/mas/respaldos', 'Respaldos', 'Guardar y recuperar todos tus datos'],
@@ -21,6 +22,7 @@ export async function mostrar(contenedor, ruta, resto = []) {
   if (sub === 'config') return (await import('./configuracion.js')).mostrar(contenedor, resto.slice(1));
   if (sub === 'clientes') return (await import('./clientes.js')).mostrar(contenedor, resto.slice(1));
   if (sub === 'reportes') return (await import('./reportes.js')).mostrar(contenedor, resto.slice(1));
+  if (sub === 'catalogo') return (await import('./compartir-catalogo.js')).mostrar(contenedor, resto.slice(1));
   if (sub === 'respaldos') return (await import('./respaldos.js')).mostrar(contenedor, resto.slice(1));
 
   const instaladaEl = await leerMeta('instaladaEl');
