@@ -6,7 +6,7 @@
  * Los DATOS de la app (ventas, productos, etc.) NO se guardan acá,
  * sino en IndexedDB, y no se borran al actualizar.
  */
-const VERSION = 'v1.0.0';
+const VERSION = 'v1.1.0';
 const CACHE = `lenceria-app-${VERSION}`;
 
 const ARCHIVOS = [
@@ -21,6 +21,7 @@ const ARCHIVOS = [
   './js/datos/datos-iniciales.js',
   './js/datos/operaciones.js',
   './js/datos/catalogo.js',
+  './js/datos/catalogo-inicial.js',
   './js/util/dom.js',
   './js/util/formato.js',
   './js/util/formulario.js',
@@ -43,6 +44,24 @@ const ARCHIVOS = [
   './js/modulos/respaldos.js',
   './js/modulos/mas.js',
   './js/modulos/configuracion.js',
+  './img/catalogo/bikini-importada.jpg',
+  './img/catalogo/bikini-mk-100.jpg',
+  './img/catalogo/bikini-mk-90.jpg',
+  './img/catalogo/bikini-mk-verde-lima.jpg',
+  './img/catalogo/boxer-capicua.jpg',
+  './img/catalogo/boxer-uomo.jpg',
+  './img/catalogo/conjunto-algodon-armado.jpg',
+  './img/catalogo/conjunto-algodon-puntilla.jpg',
+  './img/catalogo/conjunto-algodon-soft.jpg',
+  './img/catalogo/conjunto-encaje-soft.jpg',
+  './img/catalogo/lenceria-encaje.jpg',
+  './img/catalogo/lenceria-microtul.jpg',
+  './img/catalogo/pack-colaless-lycra.jpg',
+  './img/catalogo/pack-colaless-m.jpg',
+  './img/catalogo/pack-frufru.jpg',
+  './img/catalogo/pack-less-encaje.jpg',
+  './img/catalogo/pijama-l-xl.jpg',
+  './img/catalogo/pijama-m.jpg',
   './img/logo-jmm.png',
   './img/iconos/icono-192.png',
   './img/iconos/icono-512.png',

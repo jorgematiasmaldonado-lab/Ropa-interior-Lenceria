@@ -48,7 +48,28 @@ async function valoresLista(tipo) {
    ========================================================= */
 async function listaProductos(contenedor) {
   const cat = await cargarCatalogo();
+  const inicial = await import('../datos/catalogo-inicial.js');
+  const puedeCargarCatalogo = await inicial.catalogoInicialDisponible();
   const zonaLista = el('div');
+
+  async function cargarCatalogoInicial(e) {
+    const boton = e.currentTarget;
+    const ok = await confirmar({
+      titulo: 'Cargar catálogo inicial',
+      mensaje: `Se cargan ${inicial.CANTIDAD_PRODUCTOS} productos del catálogo con sus fotos y precios, con 1 unidad por talle/color. Después podés ajustar cantidades y completar los costos.`,
+      aceptar: 'Cargar'
+    });
+    if (!ok) return;
+    boton.disabled = true;
+    try {
+      const n = await inicial.cargarCatalogoInicial((hechos, total) => { boton.textContent = `Cargando… ${hechos} de ${total}`; });
+      avisar(`${n} productos cargados`);
+      listaProductos(contenedor);
+    } catch (error) {
+      avisar(error.message || 'No se pudo cargar el catálogo.', 'error');
+      listaProductos(contenedor);
+    }
+  }
 
   const buscador = el('input', {
     type: 'search', placeholder: 'Buscar por nombre, marca, talle o color…', 'aria-label': 'Buscar productos',
@@ -85,7 +106,11 @@ async function listaProductos(contenedor) {
     if (!cat.productos.length) {
       montar(zonaLista, el('div', { clase: 'tarjeta construccion' },
         el('p', {}, el('strong', {}, 'Todavía no cargaste productos.')),
-        el('p', {}, 'Empezá con el botón "Nuevo producto".')));
+        puedeCargarCatalogo
+          ? [el('p', {}, `Podés cargar de una vez los ${inicial.CANTIDAD_PRODUCTOS} productos de tu catálogo, con fotos y precios.`),
+            el('button', { type: 'button', clase: 'boton boton--grande', onClick: cargarCatalogoInicial }, 'Cargar catálogo inicial'),
+            el('p', { clase: 'campo__ayuda' }, 'O cargalos uno por uno con "Nuevo producto".')]
+          : el('p', {}, 'Empezá con el botón "Nuevo producto".')));
       return;
     }
     if (!productos.length) {

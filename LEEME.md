@@ -5,7 +5,7 @@ Funciona sin internet. Los datos se guardan **solo en el dispositivo**.
 
 Desarrollo: **JMM Gestiones & Tecnología** – © 2026 Maldonado Jorge Matias – Todos los derechos reservados.
 
-Versión: **1.0.0**
+Versión: **1.1.0**
 
 ---
 
@@ -14,6 +14,7 @@ Versión: **1.0.0**
 | Módulo | Dónde | Qué hace |
 |---|---|---|
 | Inicio | Inicio | Balance del día/semana/mes (ventas, gastos, ganancia), accesos rápidos y avisos (respaldo, sin stock, última unidad, deudas) |
+| Catálogo inicial | Inventario (cuando está vacío) | Botón "Cargar catálogo inicial": 18 productos del catálogo con fotos, precios, talles y colores (1 unidad c/u) |
 | Productos | Inventario | Fichas con foto, categoría, marca, tela, unidad o pack, costo, precio, mayorista y margen. Talles y colores con stock propio y precio especial opcional. Ajustes de stock con motivo e historial de movimientos |
 | Compras | Inventario › Compras | Ingreso de mercadería en pesos o dólares (cotización manual o sugerida oficial/blue), gastos adicionales prorrateados, costo promedio automático, anulación |
 | Proveedores | Inventario › Proveedores | Alta, edición y baja |
@@ -55,8 +56,8 @@ Abrir la dirección en Chrome o Edge → ícono **Instalar** en la barra de dire
 
 ### Publicar una actualización
 1. Cambiar la versión en **dos** lugares (deben coincidir):
-   - `sw.js` → `const VERSION = 'v1.0.0';`
-   - `js/version.js` → `VERSION_APP = '1.0.0';`
+   - `sw.js` → `const VERSION = 'v1.1.0';`
+   - `js/version.js` → `VERSION_APP = '1.1.0';`
 2. Si se agregó un archivo nuevo, sumarlo a la lista `ARCHIVOS` de `sw.js`.
 3. Subir los archivos cambiados a GitHub (Upload files → Commit).
 4. En los dispositivos aparece **"Hay una nueva versión – Actualizar"**. Los datos no se pierden.
@@ -102,12 +103,12 @@ La app no funciona abriendo `index.html` con doble clic: necesita un servidor.
 index.html  manifest.json  sw.js  .nojekyll  LEEME.md
 css/app.css
 js/app.js · js/version.js
-js/datos/   db.js · repositorios.js · operaciones.js · catalogo.js · datos-iniciales.js
+js/datos/   db.js · repositorios.js · operaciones.js · catalogo.js · catalogo-inicial.js · datos-iniciales.js
 js/modulos/ inicio.js · ventas.js · inventario.js · compras.js · selector.js · gastos.js
             clientes.js · reportes.js · respaldos.js · configuracion.js · mas.js
 js/util/    dom.js · formato.js · formulario.js · validacion.js · avisos.js · imagenes.js
             archivos.js · csv.js · cotizacion.js · whatsapp.js · comprobante.js
-img/        logo-jmm.png · iconos/
+img/        logo-jmm.png · iconos/ · catalogo/ (18 fotos)
 ```
 
 ## Pendientes conversados para más adelante

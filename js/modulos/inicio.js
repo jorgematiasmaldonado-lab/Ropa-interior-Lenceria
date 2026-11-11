@@ -122,7 +122,7 @@ async function dibujarAlertas(zona) {
     avisos.push(enlace('#/mas/clientes', '', `${deuda.length} ${deuda.length === 1 ? 'cliente te debe' : 'clientes te deben'} ${pesos(deuda.reduce((a, b) => a + b, 0))}.`));
   }
 
-  if (!productos.length) avisos.push(enlace('#/inventario/nuevo', 'alerta--info', 'Empezá cargando tus productos en Inventario.'));
+  if (!productos.length) avisos.push(enlace('#/inventario', 'alerta--info', 'Empezá cargando tus productos: en Inventario podés cargar todo tu catálogo de una vez.'));
 
   montar(zona, avisos.length ? avisos : el('p', { clase: 'balance__etiqueta' }, 'Todo en orden.'));
 }
